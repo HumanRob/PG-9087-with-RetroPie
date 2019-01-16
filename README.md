@@ -9,9 +9,10 @@ Option 1: Create the rules file yourself. This is best if you have a slightly di
 1. At the main screen, press F4 to drop to the command line (or SSH in using putty)
 2. Type "sudo nano /etc/udev/rules.d/55-local.rules" to create a new udev rule file containing the following entry:
 SUBSYSTEM=="input", ATTRS{name}=="PG-9087", MODE="0666", ENV{ID_INPUT_JOYSTICK}="1"
-... if you have a controller with a different name, substitute PG-9087 for the name of your controller as it appeared when pairing your device in the step above
-3. Press CTRL+X and save the changes
-4. Exit the command line by typing "reboot" or "exit"
+3. if you have a controller with a different name, substitute PG-9087 for the name of your controller as it appeared when pairing your device in the step above
+4. Press CTRL+X and save the changes
+5. Exit the command line by typing "reboot" or "exit"
+
 ... now the controller will work in emulationstation but not RetroArch!
 
 Option 2: Copy my [55-local.rules](55-local.rules) file to /etc/udev/rules.d/ on the pi

@@ -37,3 +37,15 @@ Option 2: copy the content of my [PG-9087.cfg](PG-9087.cfg) file into your own f
 
 # Bonus Step 4: script to automatically re-pair and connect to the controller.
 I also use this controller with my android phone, and I found that after I'd used it with my phone it wouldn't connect to my raspberry pi. I found the only way to fix this was to remove the device via the RetroPie bluetooth menu and pair it again, which was a big hassle. To avoid this I created an .sh script file which does all this for me. If I find that the controller isn't connecting I run this script and it connects straight away (I execute the script via SSH on my phone but you could include it at startup or anywhere you like). The script can be found in the file [bluetoothpair.sh](bluetoothpair.sh) . You must replace the mac address with the mac address of your own device, which you can find in RetroPie's bluetooth menu.
+
+# Bonus Step 5: Using the controller with Amiberry
+To use the controller with amiberry (the excellent Amiga emulator) you need to configure the controller in a slightly different way. This is based on the instructions here: https://github.com/midwan/amiberry/wiki/Setting-up-Input-Controllers
+
+Make a copy of PG-9087.cfg and put it into 
+controllers_path=/opt/retropie/configs/amiga/amiberry/controllers/
+
+Copy any other cfg files into it too, and then change the amiberry config file at /opt/retropie/configs/amiga/amiberry/conf/amiberry.conf to point to this folder (change 'controllers_path' to controllers_path=/opt/retropie/configs/amiga/amiberry/controllers/). The default Amiberry controller folder, 
+/opts/retropie/emulators/amiberry/controllers 
+is actually a symlink of the default retroarch controllers folder. This won't work for us as the Amiberry and retroarch PG-9087.cfg files have different button mapping.
+
+You need to edit the file and change the numbers in the config file to the numbers that appear when you run jstest against the controller and press each button. Or use this [PG-9087-for-amiberry.cfg](PG-9087-for-amiberry.cfg) and copy it over

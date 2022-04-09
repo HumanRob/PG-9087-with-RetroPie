@@ -1,7 +1,8 @@
 # [How to] Get the IPEGA PG-9087 bluetooth controller working with RetroPie
 The IPEGA PG-9087, also known as the Red Knight / Red Samurai, is a fairly cheap bluetooth controller (can be found on eBay for around £15). It's one of those retractable control pads that can clamp around a handheld device (in my case an Android phone) to make a Nintendo Switch style handheld gaming console. It also works quite well as a standalone controller, but I couldn't get mine to work with RetroPie out of the box. After lots of trial and error and trying out things on this forum I've got it working perfectly. Thought I'd share how I got it to work here in case someone has similar issues with this controller or a similar model. 
 # Step 1: Pairing the controller with RetroPie
-This part is pretty straightforward. Put the device into pairing mode and pair it from the Bluetooth option of the RetroPie menu in emulationstation. After this the device works in the bluetooth menu, but frustratingly, not in emulationstation!
+This part is pretty straightforward. Put the device into pairing mode (for the PG-9087 this is done by holding Home + X until all 4 LEDs flash) and pair it from the Bluetooth option of the RetroPie menu in emulationstation. After this the device works in the bluetooth menu, but frustratingly, not in emulationstation!
+If the device was previously paired and now cannot be found when pairing again, try deleting /etc/udev/rules.d/99-bluetooth.rules, or editing the file and removing any lines referring the controller you're pairing.
 # Step 2: Getting the controller to work with emulation station
 Here you're adding a rule to tell the pi how it should communicate with the controller (I think!!). There are 2 ways of doing this.
 
